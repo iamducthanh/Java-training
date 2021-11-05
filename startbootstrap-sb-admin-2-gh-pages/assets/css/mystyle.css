@@ -1,0 +1,33 @@
+.border-none{
+    border: none;
+}
+.rdosex{
+    width: 126px;
+}
+.cbbclass{
+    width: 150px;
+}
+.checkboxrow{
+    text-align: center;
+}
+.trnon{
+    width: 85px;
+
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 560px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+
+    .tableFixHead          { overflow: auto; height: 550px; }
+    .tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
+    
+    /* Just common table stuff. Really. */
+    table  { border-collapse: collapse; width: 100%; }
+    th, td { padding: 8px 16px; }
+    th     { background:#eee; }
