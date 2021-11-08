@@ -1,0 +1,54 @@
+.border-none{
+    border: none;
+}
+.rdosex{
+    width: 126px;
+}
+.cbbclass{
+    width: 150px;
+}
+.checkboxrow{
+    text-align: center;
+}
+.trnon{
+    width: 85px;
+
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 560px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+
+.tags {
+  position: relative;
+}
+
+.tags:hover:after {
+  background: red;
+  background: red;
+  border-radius: 5px;
+  bottom: -34px;
+  color: #fff;
+  content: attr(gloss);
+  left: 20%;
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 98;
+  width: auto;
+}
+
+.tags:hover:before {
+  border: solid;
+  border-color: red transparent;
+  border-width: 0 6px 6px 6px;
+  bottom: -4px;
+  content: "";
+  left: 50%;
+  position: absolute;
+  z-index: 99;
+}
