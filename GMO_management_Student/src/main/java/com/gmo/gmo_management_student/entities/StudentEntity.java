@@ -12,13 +12,18 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClassEntity {
+public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String fullname;
+    @Column(name = "date_of_birth ")
     private Date dateOfBirth;
     private Boolean sex;
     private String phone;
     private String note;
+
+    @ManyToOne
+    @JoinColumn(name = "class_id")
+    private ClassEntity classEntity;
 }
