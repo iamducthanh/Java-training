@@ -109,15 +109,16 @@
                                     <option th:each="class: ${classes}" th:value="${class.id}">[[${class.name}]]</option>
                                 </select>
                             </td>
-                            <td gloss="Lỗi cmnr!" class="tags">
+                            <td>
                                 <input type="text" value="" class="form-control fullname inputTable">
                             </td>
                             <td>
                                 <input type="date" value="" class="form-control dateOfBirth">
                             </td>
-                            <td class="rdosex" style="padding-top: 20px;">
+                            <td class="rdosex" style="padding-top: 20px; color: red;">
                                 <input type="radio" class="male sexRdo" name="sex0"> Nam
                                 <input type="radio" class="female sexRdo" name="sex0"> Nữ
+                                <input type="radio" checked style="display: none;" class="sexDefault sexRdo" name="sex0">
                             </td>
                             <td>
                                 <input type="text" value="" class="form-control phone inputTable">
@@ -131,13 +132,16 @@
                 </form>
                 </div>
             </div>
+            <input type="hidden" th:id="${message.key}" th:value="${message.value}" th:each="message : ${messages}">
         </div>
         <div class="text-right">
+            <button class="btn btn-danger" disabled id="btnFake">Delete</button>
             <div class="btn btn-danger" style="display: none" id="btnDelete" onclick="deleteRowSelected()">Delete</div>
-            <div class="btn btn-primary">Register</div>
+            <div class="btn btn-primary" onclick="resgister()">Register</div>
         </div>
     </div>
     <script th:src="@{/system/addstudent.js}"></script>
+    <script th:src="@{/system/validateStudent.js}"></script>
 </div>
 </body>
 </html>
