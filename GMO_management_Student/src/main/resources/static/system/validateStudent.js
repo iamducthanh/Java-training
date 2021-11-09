@@ -5,6 +5,7 @@ Tác giả : GMO_ThanhND
 
 
 const indexControls = [5,7,9,13,15,11];
+const formatFullname = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
 
 // Duyệt bảng và kiểm tra dữ liệu đầu vào trên từng dòng đã có ít nhất 1 trường dữ liệu
 function checkInputList(){
@@ -28,6 +29,10 @@ function checkInputList(){
         } else {
             if(fullname.trim().length == 0){
                 showErrorMessage(rowTable[i], 7, 1, C_00_002, 'Full name');
+            } else if(fullname.trim().length < 3 || fullname.trim().length > 25) {
+                showErrorMessage(rowTable[i], 7, 1, C_00_004, '');
+            } else if(fullname.match(formatFullname)){
+                showErrorMessage(rowTable[i], 7, 1, C_00_003, 'Full name');
             } else {
                 hiddenMessage(rowTable[i], 7, 1);
             }
