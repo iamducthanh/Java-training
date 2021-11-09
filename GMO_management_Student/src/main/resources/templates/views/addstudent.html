@@ -80,6 +80,7 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
+                    <form action="" id="myForm">
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                         <tr>
@@ -98,7 +99,8 @@
                         <tbody id="bodytable">
                         <tr class="rowTable" id="row0" status="off">
                             <td>
-                                <input class="checkboxSingle" onclick="onCheckboxChecked()" type="checkbox" style="text-align:center;">
+                                <input type="button" style="display: none;" class="btnDeleteInRow" value="Reset">
+                                <input class="checkboxSingle" onclick="onCheckboxChecked(this)" type="checkbox" style="text-align:center;">
                             </td>
                             <td class="noRow">1</td>
                             <td class="cbbclass">
@@ -108,24 +110,25 @@
                                 </select>
                             </td>
                             <td gloss="Lỗi cmnr!" class="tags">
-                                <input type="text" class="form-control fullname inputTable">
+                                <input type="text" value="" class="form-control fullname inputTable">
                             </td>
                             <td>
-                                <input type="date" class="form-control dateOfBirth">
+                                <input type="date" value="" class="form-control dateOfBirth">
                             </td>
                             <td class="rdosex" style="padding-top: 20px;">
                                 <input type="radio" class="male sexRdo" name="sex0"> Nam
                                 <input type="radio" class="female sexRdo" name="sex0"> Nữ
                             </td>
                             <td>
-                                <input type="text" class="form-control phone inputTable">
+                                <input type="text" value="" class="form-control phone inputTable">
                             </td>
                             <td>
-                                <input type="text" class="form-control note inputTable">
+                                <input type="text" value="" class="form-control note inputTable">
                             </td>
                         </tr>
                         </tbody>
                     </table>
+                </form>
                 </div>
             </div>
         </div>
