@@ -121,7 +121,7 @@ function deleteRowSelected() {
       document.getElementsByClassName("checkboxAll")[0].checked = false;
     }
   }
-  
+  checkInputList();
 }
 
 // Lưu giá trị mặc định của các input trong bảng

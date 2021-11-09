@@ -32,14 +32,15 @@
   background: red;
   background: red;
   border-radius: 5px;
-  bottom: -34px;
+  bottom: -50px;
   color: #fff;
   content: attr(gloss);
   left: 20%;
+  /* margin-top: 20px; */
   padding: 5px 15px;
   position: absolute;
   z-index: 98;
-  width: auto;
+  width: 200px;
 }
 
 .tags:hover:before {
