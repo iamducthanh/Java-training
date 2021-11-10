@@ -53,7 +53,7 @@
                                     <input type="text" name="fullname" class="form-control border-none">
                                 </td>
                                 <td>
-                                    <input type="date" name="dateOfBirth" class="form-control border-none">
+                                    <input type="date" style="width: 170px;" name="dateOfBirth" class="form-control border-none">
                                 </td>
                                 <td class="rdosex" style="padding-top: 20px;">
                                     <input type="radio" value="" checked style="display:none;" name="sex">
@@ -64,7 +64,7 @@
                                     <input name="phone" type="text" class="form-control border-none">
                                 </td>
                                 <td>
-                                    <input name="note" type="text" class="form-control border-none">
+                                    <textarea rows="1" name="note" type="text" class="form-control border-none"></textarea>
                                 </td>
                             </tr>
                             </tbody>
@@ -80,6 +80,9 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
+                    <div id="message">
+
+                    </div>
                     <form action="" id="myForm">
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
@@ -124,7 +127,7 @@
                                 <input type="text" value="" class="form-control phone inputTable">
                             </td>
                             <td>
-                                <input type="text" value="" class="form-control note inputTable">
+                                <textarea type="text" value="" rows="1" class="form-control note inputTable"></textarea>
                             </td>
                         </tr>
                         </tbody>
@@ -138,6 +141,7 @@
             <button class="btn btn-danger" disabled id="btnFake">Delete</button>
             <div class="btn btn-danger" style="display: none" id="btnDelete" onclick="deleteRowSelected()">Delete</div>
             <div class="btn btn-primary" onclick="resgister()">Register</div>
+            <div class="btn btn-primary" onclick="testAjax()">test</div>
         </div>
     </div>
     <script th:src="@{/system/addstudent.js}"></script>

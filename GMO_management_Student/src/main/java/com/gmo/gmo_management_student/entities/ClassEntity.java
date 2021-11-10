@@ -7,13 +7,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-/*
-Tên dự án: GMO_management_student
-Tên class ClassEntity.java
-
-Version     date            by              change/comment
-1.0         08/11/2021      GMO_ThanhND     create
-*/
+/**
+ * Tên dự án: GMO_management_student
+ * Tên class ClassEntity.java
+ * Version     date            by              change/comment
+ * 1.0         08/11/2021      GMO_ThanhND     create
+ */
 
 @Entity
 @Table(name = "class")

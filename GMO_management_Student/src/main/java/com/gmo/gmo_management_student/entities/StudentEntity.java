@@ -7,6 +7,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Tên dự án: GMO_management_student
+ * Tên class StudentEntity.java
+ * Version     date            by              change/comment
+ * 1.0         08/11/2021      GMO_ThanhND     create
+ */
+
 @Entity
 @Table(name = "class")
 @Data

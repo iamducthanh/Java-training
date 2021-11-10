@@ -14,7 +14,6 @@ let checkedList = new Array();
 //Xóa trắng ô nhập khi người dùng click vào
 function resetInput(e) {
   e.value = "";
-  console.log("on reset");
 }
 
 //Lấy dữ liệu trên dòng template
@@ -73,7 +72,6 @@ function checkBoxAll() {
     document.getElementById("btnDelete").style.display = "none";
     document.getElementById("btnFake").style.display = "unset";
 
-    console.log(checkedList.length)
   } else {
     for (let i = 0; i < checkboxSingles.length; i++) {
       checkboxSingles[i].checked = true;
@@ -82,7 +80,6 @@ function checkBoxAll() {
     document.getElementById("btnDelete").style.display = "unset";
     document.getElementById("btnFake").style.display = "none";
 
-    console.log(checkedList.length)
   }
 }
 
@@ -93,7 +90,6 @@ function onCheckboxChecked(e) {
   } else {
     checkedList.pop();
   }
-  console.log(checkedList.length);
   if (checkedList.length == 10) {
     document.getElementsByClassName("checkboxAll")[0].checked = true;
   } else if(checkedList.length == 0) {
@@ -114,6 +110,7 @@ function deleteRowSelected() {
       checkedList.pop();
       document.getElementsByClassName("btnDeleteInRow")[i].click();
       document.getElementsByName('sex' + i)[2].checked = true;
+      hiddenMessageInRow($(".rowTable")[i], 1);
     }
     if(checkedList.length == 0){
       document.getElementById("btnDelete").style.display = "none";
@@ -121,7 +118,6 @@ function deleteRowSelected() {
       document.getElementsByClassName("checkboxAll")[0].checked = false;
     }
   }
-  checkInputList();
 }
 
 // Lưu giá trị mặc định của các input trong bảng
@@ -140,6 +136,33 @@ $('#myForm [type="button"]').on("click", function (e) {
     });
 });
 
-function resgister(){
+async function resgister(){
   checkInputList();
+  let students = [];
+  errorMessage.length = 0;
+  if(errorMessage.length == 0){
+    for(let i=0;i<studentsRegister.length;i++) {
+      if (!(studentsRegister[i].classId == ''
+          && studentsRegister[i].fullname == ''
+          && studentsRegister[i].dateOfBirth == ''
+          && studentsRegister[i].phone == ''
+          && studentsRegister[i].note == ''
+          && studentsRegister[i].sex == '')) {
+        students.push({
+          classId: studentsRegister[i].classId,
+          fullname: studentsRegister[i].fullname,
+          dateOfBirth: studentsRegister[i].dateOfBirth,
+          phone: studentsRegister[i].phone,
+          note: studentsRegister[i].note,
+          sex: studentsRegister[i].sex
+        })
+      }
+    }
+
+    let dataOut = await callAjax('add-student', JSON.stringify(students), 'POST');
+    console.log(
+        dataOut
+    )
+  }
 }
+

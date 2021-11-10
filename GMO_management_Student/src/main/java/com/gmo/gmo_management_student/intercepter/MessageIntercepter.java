@@ -10,7 +10,10 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 /**
- *
+ * Tên dự án: GMO_management_student
+ * Tên class MessageIntercepter.java
+ * Version     date            by              change/comment
+ * 1.0         08/11/2021      GMO_ThanhND     create
  */
 @Component
 public class MessageIntercepter implements HandlerInterceptor {
@@ -19,8 +22,9 @@ public class MessageIntercepter implements HandlerInterceptor {
      * @param request
      * @param response
      * @param handler
-     * @return
+     * @return true: cho phép chuyển tiếp tới đường dẫn yêu cầu
      * @throws Exception
+     * Mô tả thêm thuộc tính thông báo vào các trang
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
