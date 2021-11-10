@@ -16,5 +16,5 @@ public interface IStudentService {
      * mô tả: lấy ra danh sách sinh viên
      */
     List<StudentEntity> findAllStudent();
-
+    void saveStudents(List<StudentEntity> studentEntities);
 }

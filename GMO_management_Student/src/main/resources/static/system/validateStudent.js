@@ -75,7 +75,7 @@ function checkInputList(){
                 checkStudentRegisterConstant(rowTable[i], i, fullname, dateOfBirth);
             } else {
                 hiddenMessage(rowTable[i], 9, 1);
-            }   
+            }
 
             // check sex
             if(sex.trim().length == 0){
@@ -100,12 +100,16 @@ function checkInputList(){
 
     // console.log(studentsRegister);
     console.log(errorMessage);
+    showMessage();
+}
+
+function showMessage(){
     let messageDiv = document.getElementById('message');
     messageDiv.innerHTML = '';
     for(let i=0;i<errorMessage.length;i++){
         messageDiv.innerHTML +=
             "<div class=\"alert alert-danger\" role=\"alert\">"+
-                errorMessage[i] +
+            errorMessage[i] +
             "</div>";
     }
 }
@@ -120,6 +124,9 @@ function addMessage(rowTable, j, k, messageCode, param){
     let message = messageCode.replace('{1}', param);
     if(!errorMessage.includes(message)){
         errorMessage.push(message)
+    }
+    if(j == 11){
+        rowTable.childNodes[11].style.color = 'red';
     }
     rowTable.childNodes[j].childNodes[k].style.border = '1px solid red';
 }

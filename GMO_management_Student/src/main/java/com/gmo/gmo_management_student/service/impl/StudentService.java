@@ -4,6 +4,7 @@ import com.gmo.gmo_management_student.entities.StudentEntity;
 import com.gmo.gmo_management_student.repository.StudentRepository;
 import com.gmo.gmo_management_student.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * Version     date            by              change/comment
  * 1.0         08/11/2021      GMO_ThanhND     create
  */
+@Service
 public class StudentService implements IStudentService {
     @Autowired
     private StudentRepository repo;
@@ -25,5 +27,10 @@ public class StudentService implements IStudentService {
     public List<StudentEntity> findAllStudent() {
         List<StudentEntity> list = repo.findAll();
         return list.isEmpty() ? null : list;
+    }
+
+    @Override
+    public void saveStudents(List<StudentEntity> studentEntities) {
+        repo.saveAll(studentEntities);
     }
 }

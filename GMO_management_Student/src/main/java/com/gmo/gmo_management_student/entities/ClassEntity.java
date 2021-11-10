@@ -27,4 +27,5 @@ public class ClassEntity {
 
     @OneToMany(mappedBy = "classEntity")
     List<StudentEntity> studentEntities;
+
 }

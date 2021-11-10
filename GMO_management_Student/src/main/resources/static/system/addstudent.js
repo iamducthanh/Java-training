@@ -118,6 +118,7 @@ function deleteRowSelected() {
       document.getElementsByClassName("checkboxAll")[0].checked = false;
     }
   }
+  checkInputList();
 }
 
 // Lưu giá trị mặc định của các input trong bảng
@@ -139,7 +140,7 @@ $('#myForm [type="button"]').on("click", function (e) {
 async function resgister(){
   checkInputList();
   let students = [];
-  errorMessage.length = 0;
+  // errorMessage.length = 0;
   if(errorMessage.length == 0){
     for(let i=0;i<studentsRegister.length;i++) {
       if (!(studentsRegister[i].classId == ''
@@ -149,6 +150,7 @@ async function resgister(){
           && studentsRegister[i].note == ''
           && studentsRegister[i].sex == '')) {
         students.push({
+          rowId: i,
           classId: studentsRegister[i].classId,
           fullname: studentsRegister[i].fullname,
           dateOfBirth: studentsRegister[i].dateOfBirth,
@@ -160,9 +162,18 @@ async function resgister(){
     }
 
     let dataOut = await callAjax('add-student', JSON.stringify(students), 'POST');
+    let rowTable = $(".rowTable");
+    for(let i=0;i<rowTable.length;i++){
+      hiddenMessageInRow(rowTable[i], 1);
+    }
+    for(let i=0;i<dataOut.length;i++){
+      addMessage(rowTable[dataOut[i].row], dataOut[i].column, 1, dataOut[i].messageCode, dataOut[i].param);
+    }
+    showMessage();
     console.log(
         dataOut
     )
+    console.log(errorMessage)
   }
 }
 

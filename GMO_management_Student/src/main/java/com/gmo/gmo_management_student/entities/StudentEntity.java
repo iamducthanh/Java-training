@@ -15,7 +15,7 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "class")
+@Table(name = "student", uniqueConstraints = {@UniqueConstraint(columnNames = {"class_id"})})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,4 +33,13 @@ public class StudentEntity {
     @ManyToOne
     @JoinColumn(name = "class_id")
     private ClassEntity classEntity;
+
+    public StudentEntity(String fullname, Date dateOfBirth, Boolean sex, String phone, String note, ClassEntity classEntity) {
+        this.fullname = fullname;
+        this.dateOfBirth = dateOfBirth;
+        this.sex = sex;
+        this.phone = phone;
+        this.note = note;
+        this.classEntity = classEntity;
+    }
 }

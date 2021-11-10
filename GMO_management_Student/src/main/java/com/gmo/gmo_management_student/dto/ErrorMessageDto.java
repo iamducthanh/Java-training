@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ErrorMessageDto {
     private Integer row;
-    private Integer colum;
+    private Integer column;
     private String messageCode;
+    private String param;
 }
