@@ -8,10 +8,10 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class WebMvcConfig.java
- * Version     date            by              change/comment
- * 1.0         08/11/2021      GMO_ThanhND     create
+ * Thêm các phương thức lấy dữ liệu trước khi xử lí yêu cầu
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-11-08
  */
 
 @Configuration
@@ -22,8 +22,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     private MessageIntercepter messageIntercepter;
 
     /**
-     * @param registry
-     * Mô tả: gọi phương thức thêm thuộc tính cho các trang hiển thị
+     * Gọi phương thức thêm thuộc tính cho các trang hiển thị
+     * @param registry kho chứa các Intercepter
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

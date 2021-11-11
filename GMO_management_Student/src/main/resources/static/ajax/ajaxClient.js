@@ -3,7 +3,6 @@ const callAjax = async (url, data, method) => {
     await $.ajax({
         url: url,
         data: data,
-        // dataType: 'application/json',
         contentType: 'application/json',
         error: function () {
             console.log("error")

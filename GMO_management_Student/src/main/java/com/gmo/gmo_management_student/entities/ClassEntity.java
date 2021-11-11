@@ -8,10 +8,10 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class ClassEntity.java
- * Version     date            by              change/comment
- * 1.0         08/11/2021      GMO_ThanhND     create
+ * Định nghĩa thực thể Class giống với bảng class trong database
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-11-08
  */
 
 @Entity

@@ -18,15 +18,17 @@ function resetInput(e) {
 
 //Lấy dữ liệu trên dòng template
 function batchInput(event) {
+    const MALE = "1";
+    const FEMALE = "0";
     event.preventDefault();
     let formData = $("#formInput").serializeArray(); // lấy toàn bộ dữ liệu trong form
     let rowTable = document.getElementsByClassName("rowTable");
     for (let i = 0; i < rowTable.length; i++) {
         for (let j = 0; j <= MAX_LENGHT_FORMDATA; j++) {
             if (formData[j].name == "sex") {
-                if (formData[j].value == "1") {
+                if (formData[j].value == MALE) {
                     document.getElementsByClassName("male")[i].checked = true;
-                } else if (formData[j].value == "0") {
+                } else if (formData[j].value == FEMALE) {
                     document.getElementsByClassName("female")[i].checked = true;
                 }
             } else {
@@ -71,22 +73,18 @@ function checkBoxAll() {
         }
         document.getElementById("btnDelete").style.display = "none";
         document.getElementById("btnFake").style.display = "unset";
-        // $('#btnDelete').style.display = "none";
-        // $('#btnFake').style.display = "unset";
-
     } else {
         for (let i = 0; i < checkboxSingles.length; i++) {
             checkboxSingles[i].checked = true;
             checkedList.push('checkbox')
         }
-        // $('#btnDelete').style.display = "unset";
-        // $('#btnFake').style.display = "none";
         document.getElementById("btnDelete").style.display = "unset";
         document.getElementById("btnFake").style.display = "none";
     }
 }
 
 // sự kiện bật tắt checkbox trên các dòng
+// @param e: thẻ cần thao tác
 function onCheckboxChecked(e) {
     if (e.checked) {
         checkedList.push('checkbox')
@@ -116,12 +114,9 @@ function deleteRowSelected() {
             hiddenMessageInRow($(".rowTable")[i], 1);
         }
         if (checkedList.length == 0) {
-            // document.getElementById("btnDelete").style.display = "none";
-            // document.getElementById("btnFake").style.display = "unset";
             document.getElementsByClassName("checkboxAll")[0].checked = false;
-            $('#btnDelete').style.display = "none";
-            $('#btnFake').style.display = "unset";
-            // $('.checkboxAll')[0].checked = false;
+            document.getElementById("btnDelete").style.display = "none";
+            document.getElementById("btnFake").style.display = "unset";
         }
     }
     checkInputList();
@@ -143,10 +138,12 @@ $('#myForm [type="button"]').on("click", function (e) {
         });
 });
 
+// mô tả: lấy dữ liệu kiểm tra và gửi về server
 async function resgister() {
     checkInputList();
     let students = [];
-    errorMessage.length = 0;
+
+    // nếu kiểm tra không có lỗi
     if (errorMessage.length == 0) {
         // lấy dữ liệu tại những dòng được nhập
         for (let i = 0; i < studentsRegister.length; i++) {
@@ -168,22 +165,25 @@ async function resgister() {
             }
         }
 
+        // Nhận về thông báo lỗi bên server
         let dataOut = await callAjax('add-student', JSON.stringify(students), 'POST');
         let rowTable = $(".rowTable");
-        console.log(
-            dataOut
-        )
+
+        // ẩn các thông báo lỗi hiện tại
         for (let i = 0; i < rowTable.length; i++) {
             hiddenMessageInRow(rowTable[i], 1);
         }
+
+        // đưa lên những thông báo mới
         for (let i = 0; i < dataOut.length; i++) {
             addMessage(rowTable[dataOut[i].row], dataOut[i].column, 1, dataOut[i].messageCode, dataOut[i].param);
         }
         showMessage();
+
+        // nếu không có lỗi thì xóa trắng bảng và thông báo thêm thành công
         if (dataOut.length == 0) {
            $(".checkboxAll")[0].click();
            deleteRowSelected();
-
             let messageDiv = $("#message");
             messageDiv.innerHTML = '';
             messageDiv.innerHTML +=

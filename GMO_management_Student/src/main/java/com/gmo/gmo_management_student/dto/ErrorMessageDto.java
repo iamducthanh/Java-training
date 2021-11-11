@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class MessageError.java
- * Version     date            by              change/comment
- * 1.0         08/11/2021      GMO_ThanhND     create
+ * Định nghĩa các thuộc tính của thông báo để gửi về view
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-11-08
  */
 
 @Data

@@ -10,10 +10,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class StudentService.java
- * Version     date            by              change/comment
- * 1.0         08/11/2021      GMO_ThanhND     create
+ * Định nghĩa lại cho các phương thức để thao tác với Student
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-11-08
  */
 @Service
 public class StudentService implements IStudentService {
@@ -21,8 +21,8 @@ public class StudentService implements IStudentService {
     private StudentRepository repo;
 
     /**
-     * @return danh sách sinh viên
-     * mô tả: lấy ra danh sách sinh viên
+     * Lấy ra danh sách sinh viên
+     * @return nếu tìm thấy thì trả về danh sách sinh viên, không thì trả về rỗng
      */
     @Override
     public List<StudentEntity> findAllStudent() {
@@ -30,11 +30,21 @@ public class StudentService implements IStudentService {
         return list.isEmpty() ? null : list;
     }
 
+    /**
+     * Lưu danh sách sinh viên vào database
+     * @param studentEntities danh sách thực thể sinh viên
+     */
     @Override
     public void saveStudents(List<StudentEntity> studentEntities) {
         repo.saveAll(studentEntities);
     }
 
+    /**
+     * Tìm sinh viên theo họ tên vào ngày sinh
+     * @param fullname họ tên sinh viên
+     * @param dateOfBirth ngày sinh
+     * @return trả về sinh viên tìm thấy
+     */
     @Override
     public StudentEntity findStudentByFullnameAndDateOfBirth(String fullname, Date dateOfBirth) {
         List<StudentEntity> list = repo.findByFullnameAndDateOfBirth(fullname, dateOfBirth);

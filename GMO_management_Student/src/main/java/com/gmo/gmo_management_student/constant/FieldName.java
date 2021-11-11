@@ -1,11 +1,10 @@
 package com.gmo.gmo_management_student.constant;
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class FieldName.java
- * Version     date            by              change/comment
- * 1.0         08/11/2021      GMO_ThanhND     create
- * mô tả: tên nhưng trường thuộc tính trong đối tượng StudentDto
+ * Tên những trường thuộc tính trong đối tượng Student
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-08-11
  */
 public class FieldName {
     public static final String CLASS_ID = "classId";

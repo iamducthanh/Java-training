@@ -1,7 +1,6 @@
 package com.gmo.gmo_management_student.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gmo.gmo_management_student.constant.FieldColumn;
 import com.gmo.gmo_management_student.constant.FieldName;
 import com.gmo.gmo_management_student.constant.Message;
@@ -24,24 +23,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class StudentController.java
- * Version     date            by              change/comment
- * 1.0         10/11/2021      GMO_ThanhND     create
+ * Xử lí yêu cầu về sinh viên
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-08-11
  */
-
 @Controller
 public class StudentController {
-    @Autowired
-    private ObjectMapper objectMapper;
-    private ObjectError objectError;
-
     @Autowired
     private IClassService classService;
     @Autowired
@@ -49,8 +42,7 @@ public class StudentController {
 
 
     /**
-     * mô tả: hiển thị giao diện danh sách sinh viên
-     *
+     * Hiển thị giao diện danh sách sinh viên
      * @return trang hiển thị danh sách sinh viên
      */
     @GetMapping("/")
@@ -59,7 +51,7 @@ public class StudentController {
     }
 
     /**
-     * mô tả: hiển thị giao diện thêm sinh viên
+     * Hiển thị giao diện thêm sinh viên
      *
      * @return trang hiển thị thêmsinh viên
      */
@@ -69,8 +61,7 @@ public class StudentController {
     }
 
     /**
-     * Mô tả: Nhận danh sách sinh viên đăng kí để xử lí và trả về lỗi
-     *
+     * Nhận danh sách sinh viên đăng kí để xử lí và trả về lỗi
      * @param studentDtos danh sách sinh viên dạng json
      * @param result      danh sách lỗi
      * @return danh sách lỗi
@@ -92,8 +83,7 @@ public class StudentController {
     }
 
     /**
-     * mô tả: đưa các lỗi vào danh sách để gửi về phía máy khách
-     *
+     * Đưa các lỗi vào danh sách để gửi về phía máy khách
      * @param errorMessageDtos danh sách để chứa lỗi
      * @param index            vị trí của dòng có lõi
      * @param column           vị trí của cột có lỗi
@@ -106,8 +96,7 @@ public class StudentController {
     }
 
     /**
-     * mô tả: đưa danh sách sinh viên vào database
-     *
+     * Đưa danh sách sinh viên vào database
      * @param studentDtos danh sách đưa vào
      * @throws ParseException
      */
@@ -131,9 +120,8 @@ public class StudentController {
     }
 
     /**
-     * mô tả: lấy danh sách lỗi đã được kiểm tra qua @Valid
-     *
-     * @param result           danh sách lõi đã được kiểm tra
+     * Lấy danh sách lỗi đã được kiểm tra qua @Valid
+     * @param result           danh sách lỗi đã được kiểm tra
      * @param studentDtos      danh sách sinh viên
      * @param errorMessageDtos danh sách lỗi
      */
@@ -181,8 +169,7 @@ public class StudentController {
 
 
     /**
-     * mô tả: kiểm tra các lỗi còn lại
-     *
+     * Kiểm tra các lỗi còn lại
      * @param studentDtos      danh sách sinh viên
      * @param errorMessageDtos danh sách lỗi
      */

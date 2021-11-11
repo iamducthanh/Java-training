@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class ClassRepository.java
- * Version     date            by              change/comment
- * 1.0         08/11/2021      GMO_ThanhND     create
+ * Kế thừa các phương thức viết sẵn để thao tác với cơ sở dữ liệu
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-11-08
  */
 
 public interface ClassRepository extends JpaRepository<ClassEntity, Integer> {

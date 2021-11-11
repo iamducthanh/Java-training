@@ -7,10 +7,10 @@ import javax.validation.Valid;
 import java.util.*;
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class ValidList.java
- * Version     date            by              change/comment
- * 1.0         08/11/2021      GMO_ThanhND     create
+ * Sử dụng @Valid cho từng đối tượng trong danh sách
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-11-09
  */
 @Data
 public class ValidList<E> implements List<E> {

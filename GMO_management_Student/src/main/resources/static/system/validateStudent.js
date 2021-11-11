@@ -97,9 +97,6 @@ function checkInputList(){
             }
         }
     }
-
-    // console.log(studentsRegister);
-    console.log(errorMessage);
     showMessage();
 }
 

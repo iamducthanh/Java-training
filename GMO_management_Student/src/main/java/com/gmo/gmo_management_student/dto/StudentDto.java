@@ -11,10 +11,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class StudentDto.java
- * Version     date            by              change/comment
- * 1.0         08/11/2021      GMO_ThanhND     create
+ * Định nghĩa các thuộc tính sinh viên để hứng dữ liệu gửi về từ view
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-11-08
  */
 
 @Data

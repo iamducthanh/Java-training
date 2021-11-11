@@ -8,10 +8,10 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Tên dự án: GMO_management_student
- * Tên class StudentEntity.java
- * Version     date            by              change/comment
- * 1.0         08/11/2021      GMO_ThanhND     create
+ * Định nghĩa thực thể Student giống với bảng student trong database
+ * @author  GMO_ThanhND
+ * @version 1.0
+ * @since   2021-11-08
  */
 
 @Entity
@@ -34,6 +34,15 @@ public class StudentEntity {
     @JoinColumn(name = "class_id")
     private ClassEntity classEntity;
 
+    /**
+     * Hàm tạo không có tham số là id
+     * @param fullname
+     * @param dateOfBirth
+     * @param sex
+     * @param phone
+     * @param note
+     * @param classEntity
+     */
     public StudentEntity(String fullname, Date dateOfBirth, Boolean sex, String phone, String note, ClassEntity classEntity) {
         this.fullname = fullname;
         this.dateOfBirth = dateOfBirth;

@@ -1,0 +1,10 @@
+com.gmo.gmo_management_student
+com.gmo.gmo_management_student.config
+com.gmo.gmo_management_student.constant
+com.gmo.gmo_management_student.controller
+com.gmo.gmo_management_student.dto
+com.gmo.gmo_management_student.entities
+com.gmo.gmo_management_student.intercepter
+com.gmo.gmo_management_student.repository
+com.gmo.gmo_management_student.service
+com.gmo.gmo_management_student.service.impl
