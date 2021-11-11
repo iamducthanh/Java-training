@@ -105,6 +105,7 @@ function checkInputList(){
 
 function showMessage(){
     let messageDiv = document.getElementById('message');
+
     messageDiv.innerHTML = '';
     for(let i=0;i<errorMessage.length;i++){
         messageDiv.innerHTML +=
@@ -170,12 +171,15 @@ function checkStudentRegisterConstant(rowTable ,row, fullname, dateOfBirth){
             continue;
         } else {
             if(studentsRegister[i].fullname == fullname && studentsRegister[i].dateOfBirth == dateOfBirth){
+                // thêm thông báo vào danh sách để hiển thị
                 addMessage(rowTable, 7, 1, C_00_008, '');
                 addMessage(rowTable, 9, 1, C_00_008, '');
+                // đổi viền đỏ cho ô bị lỗi
                 rowTable.childNodes[7].childNodes[1].style.border = '1px solid red';
                 rowTable.childNodes[9].childNodes[1].style.border = '1px solid red';
                 break;
             } else {
+                // ẩn thông báo lỗi tại ô
                 rowTable.childNodes[7].childNodes[1].style.border = '1px solid #d1d3e2';
                 rowTable.childNodes[9].childNodes[1].style.border = '1px solid #d1d3e2';
             }

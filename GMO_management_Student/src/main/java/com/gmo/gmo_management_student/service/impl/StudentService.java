@@ -6,6 +6,7 @@ import com.gmo.gmo_management_student.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,5 +33,11 @@ public class StudentService implements IStudentService {
     @Override
     public void saveStudents(List<StudentEntity> studentEntities) {
         repo.saveAll(studentEntities);
+    }
+
+    @Override
+    public StudentEntity findStudentByFullnameAndDateOfBirth(String fullname, Date dateOfBirth) {
+        List<StudentEntity> list = repo.findByFullnameAndDateOfBirth(fullname, dateOfBirth);
+        return list.isEmpty() ? null : list.get(0);
     }
 }

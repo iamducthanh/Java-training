@@ -36,7 +36,7 @@ public class StudentDto {
     private String note;
 
     @NotBlank(message = "C-00-002")
-    @Pattern(regexp = "[0]{1}[35879]{1}[0-9]{8}", message = "C-00-007")
+    @Pattern(regexp = "[0]{1}[3245879]{1}[0-9]{8}", message = "C-00-007")
     private String phone;
 
     @NotBlank(message = "C-00-002")

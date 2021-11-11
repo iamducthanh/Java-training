@@ -23,7 +23,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     /**
      * @param registry
-     * Mô tả: gọi phương thức thêm thuộc tính cho đường dẫn
+     * Mô tả: gọi phương thức thêm thuộc tính cho các trang hiển thị
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

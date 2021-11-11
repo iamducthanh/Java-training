@@ -2,6 +2,7 @@ package com.gmo.gmo_management_student.service;
 
 import com.gmo.gmo_management_student.entities.StudentEntity;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,4 +18,5 @@ public interface IStudentService {
      */
     List<StudentEntity> findAllStudent();
     void saveStudents(List<StudentEntity> studentEntities);
+    StudentEntity findStudentByFullnameAndDateOfBirth(String fullname, Date dateOfBirth);
 }
